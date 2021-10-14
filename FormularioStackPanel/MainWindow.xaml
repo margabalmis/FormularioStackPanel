@@ -11,10 +11,14 @@
     Width="800"
     Icon="assets/iconoForm.ico"
     MinWidth="400">
-    <StackPanel Margin="10">
-        <StackPanel>
-            <StackPanel.Background>
-                <LinearGradientBrush
+
+    <Window.Resources>
+
+        <Style TargetType="{x:Type StackPanel}" x:Key="nombre">
+            
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush
                     EndPoint="0.5,1"
                     StartPoint="0.5,0">
                     <GradientStop
@@ -23,86 +27,121 @@
                         Color="#FEFFFFFF"
                         Offset="0.593" />
                 </LinearGradientBrush>
-            </StackPanel.Background>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type StackPanel}"
+               x:Key="direccion">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1"
+                                         StartPoint="0.5,0">
+                        <GradientStop Color="#FFF2F37C" />
+                        <GradientStop Color="White"
+                                      Offset="0.672" />
+                        <GradientStop Color="#FFF2F37F" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <Style TargetType="{x:Type StackPanel}"
+               x:Key="correo">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1"
+                                         StartPoint="0.5,0">
+                        <GradientStop Color="#FFBF9EE5"
+                                      Offset="0" />
+                        <GradientStop Color="White"
+                                      Offset="0.604" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Margin"
+                    Value="5,0,5,10">
+            </Setter>
+            <Setter Property="FontSize"
+                    Value="16">
+            </Setter>
+            <Setter Property="FontWeight"
+                    Value="Bold">
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Margin"
+                    Value="10">
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBox}"
+               x:Key="correoTextbox">
+            <Setter Property="Margin"
+                    Value="10">
+            </Setter>
+            <Setter Property="MaxWidth"
+                    Value="400">
+            </Setter>
+            <Setter Property="MinWidth"
+                    Value="400">
+            </Setter>
+            <Setter Property="HorizontalAlignment"
+                    Value="Left">
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            
+            <Setter Property="Margin"
+                    Value="10,10,10,10"></Setter>
+            <Setter Property="MinWidth" Value="100"></Setter>
+            <Setter Property="FontWeight"
+                    Value="Bold"></Setter>
+            <Setter Property="Background"
+                    Value="#FFEDEDED"></Setter>
+        </Style>
+
+        <Style TargetType="{x:Type StackPanel}"
+            x:Key="stackPanelBotones">
+            <Setter
+                    Property="Orientation" 
+                    Value="Horizontal"></Setter>
+            <Setter Property="HorizontalAlignment"
+                    Value="Right"></Setter>
+            <Setter Property="Margin"
+                    Value="5,0,5,10"></Setter>
+        </Style>
+
+    </Window.Resources>
+    
+    <StackPanel>
+        <StackPanel Style="{StaticResource nombre}">
+            <TextBlock Text="Nombre"></TextBlock>
+            <TextBox>
+            </TextBox>
+        </StackPanel>
+        <StackPanel Style="{StaticResource direccion}">
+            <TextBlock Text="Dirección">
+            </TextBlock>
+            <TextBox >
+            </TextBox>
+        </StackPanel>
+        <StackPanel Style="{StaticResource correo}">
             <TextBlock
-                Margin="5,0,5,10"
-                Text="Nombre"
-                FontSize="16"
-                FontWeight="Bold">
+                Text="Correo electrónico">
             </TextBlock>
-            <TextBox
-                Margin="5">
+            <TextBox Style="{StaticResource correoTextbox}">
             </TextBox>
         </StackPanel>
-        <StackPanel>
-            <StackPanel.Background>
-                <LinearGradientBrush
-                    EndPoint="0.5,1"
-                    StartPoint="0.5,0">
-                    <GradientStop
-                        Color="#FFF2F37C" />
-                    <GradientStop
-                        Color="White"
-                        Offset="0.672" />
-                    <GradientStop
-                        Color="#FFF2F37F" />
-                </LinearGradientBrush>
-            </StackPanel.Background>
-            <TextBlock
-                Margin="5"
-                Text="Dirección"
-                FontSize="16"
-                FontWeight="Bold">
-            </TextBlock>
-            <TextBox Margin="5,0,5,10">
-            </TextBox>
-        </StackPanel>
-        <StackPanel>
-            <StackPanel.Background>
-                <LinearGradientBrush
-                    EndPoint="0.5,1"
-                    StartPoint="0.5,0">
-                    <GradientStop
-                        Color="#FFBF9EE5"
-                        Offset="0" />
-                    <GradientStop
-                        Color="White"
-                        Offset="0.604" />
-                </LinearGradientBrush>
-            </StackPanel.Background>
-            <TextBlock Margin="5,0,5,10"
-                Text="Correo electrónico"
-                FontSize="16"
-                FontWeight="Bold">
-            </TextBlock>
-            <TextBox
-                HorizontalAlignment="Left"
-                MaxWidth="500"
-                Margin="5,0,5,10"
-                Width="576"
-                     TextChanged="TextBox_TextChanged">
-            </TextBox>
-        </StackPanel>
-        <StackPanel
-            Orientation="Horizontal"
-            HorizontalAlignment="Right">
+        <StackPanel Style="{StaticResource stackPanelBotones}">
             <Button
-                MaxWidth="100"
-                MinWidth="100"
                 x:Name="aceptarButton"
-                Content="Aceptar"
-                Margin="10"
-                Background="#FFEDEDED"
-                FontWeight="Bold">
+                Content="Aceptar">
             </Button>
             <Button
-                MaxWidth="100"
-                MinWidth="100"
                 x:Name="cancelarButton"
-                Content="Cancelar"
-                Margin="10,10,0,10"
-                FontWeight="Bold"
-                Background="#FFEDEDED">
+                Content="Cancelar">
             </Button>
         </StackPanel>
     </StackPanel>
